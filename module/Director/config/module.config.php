@@ -23,7 +23,7 @@ return [
                 'class' => AnnotationDriver::class,
                 'cache' => 'array',
                 'paths' => [
-                    'module/Director/src/Model',
+                            'module/Director/src/Model',
                 ],
             ],
             'orm_default' => [

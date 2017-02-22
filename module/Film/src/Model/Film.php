@@ -5,7 +5,6 @@ namespace Film\Model;
 use Doctrine\ORM\Mapping as ORM;
 use Director\Model\Director;
 use Image\Model\Image;
-use Actor\Model\Actor;
 use Genre\Model\Genre;
 
 /**
@@ -56,7 +55,7 @@ class Film
     /**
      * @var Director
      *
-     * @ORM\ManyToOne(targetEntity="Model\Director")
+     * @ORM\ManyToOne(targetEntity="Director\Model\Director")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="director_id", referencedColumnName="id")
      * })
@@ -66,7 +65,7 @@ class Film
     /**
      * @var Genre
      *
-     * @ORM\ManyToOne(targetEntity="Model\Genre")
+     * @ORM\ManyToOne(targetEntity="Genre\Model\Genre")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="genre_id", referencedColumnName="id")
      * })
@@ -76,7 +75,7 @@ class Film
     /**
      * @var Image
      *
-     * @ORM\ManyToOne(targetEntity="Model\Image")
+     * @ORM\ManyToOne(targetEntity="Image\Model\Image")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="img_id", referencedColumnName="id")
      * })
