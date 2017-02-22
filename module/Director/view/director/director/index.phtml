@@ -1,0 +1,25 @@
+<?php
+$title = 'Director';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('director', ['action' => 'add']) ?>">Add new director</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+    <?php foreach ($this->directors as $director) : ?>
+        <?php /** @var \Director\Model\Director $director */ ?>
+        <tr>
+            <td><?= $this->escapeHtml($director->getFirstName()) ?></td>
+            <td><?= $this->escapeHtml($director->getLastName()) ?></td>
+            <td>
+                <a href="<?= $this->url('director', ['action' => 'edit', 'id' => $director->getId()]) ?>">Edit</a>
+                <a href="<?= $this->url('director', ['action' => 'delete', 'id' => $director->getId()]) ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

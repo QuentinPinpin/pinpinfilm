@@ -1,0 +1,28 @@
+<?php
+$title = 'Film';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('film', ['action' => 'add']) ?>">Add new Film</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+    <?php foreach ($this->films as $film) : ?>
+        <?php /** @var \Film\Model\Film $film */ ?>
+        <tr>
+            <td><?= $this->escapeHtml($film->getTitle()) ?></td>
+            <td><?= $this->escapeHtml($film->getDirector()) ?></td>
+            <td><?= $this->escapeHtml($film->getImg()) ?></td>
+            <td><?= $this->escapeHtml($film->getGenre()) ?></td>
+            <td><?= $this->escapeHtml($film->getSynopsis()) ?></td>
+            <td>
+                <a href="<?= $this->url('film', ['action' => 'edit', 'id' => $film->getId()]) ?>">Edit</a>
+                <a href="<?= $this->url('film', ['action' => 'delete', 'id' => $film->getId()]) ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

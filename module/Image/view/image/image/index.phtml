@@ -1,0 +1,25 @@
+<?php
+$title = 'Image';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('image', ['action' => 'add']) ?>">Add new image</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+    <?php foreach ($this->images as $image) : ?>
+        <?php /** @var \Image\Model\Image $image */ ?>
+        <tr>
+            <td><?= $this->escapeHtml($image->getTitle()) ?></td>
+            <td><?= $this->escapeHtml($image->getPath()) ?></td>
+            <td>
+                <a href="<?= $this->url('image', ['action' => 'edit', 'id' => $image->getId()]) ?>">Edit</a>
+                <a href="<?= $this->url('image', ['action' => 'delete', 'id' => $image->getId()]) ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
